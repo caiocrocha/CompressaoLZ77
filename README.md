@@ -1,4 +1,10 @@
 # CompressaoLZ77
+Algoritmo de codificação LZ77 implementado para a disciplina de Estruturas de Dados II da Universidade Federal de Juiz de Fora (UFJF). 
+## Instruções
+```
+make
+./main nome_do_arquivo_de_entrada.txt
+```
 ## Pseudocódigo
 ```
 input string s

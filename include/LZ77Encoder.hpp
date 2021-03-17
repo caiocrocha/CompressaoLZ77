@@ -6,7 +6,7 @@
 
 #include "LZ77Tuple.hpp"
 
-class LZ77Encoder 
+class LZ77Encoder
 {
     std::vector<LZ77Tuple> _keys;
     std::string _text;

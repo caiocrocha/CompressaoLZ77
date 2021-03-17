@@ -5,6 +5,11 @@
 #include "../include/LZ77Tuple.hpp"
 #include "../include/LZ77Encoder.hpp"
 
+std::ostream& operator<<(std::ostream& out, const LZ77Tuple& tuple)
+{
+    return out << "(" << tuple.p << "," << tuple.l << "," << tuple.c << ")";
+}
+
 LZ77Encoder::LZ77Encoder(size_t buffSize, size_t dictSize)
 {
     this->_buffSize = buffSize;

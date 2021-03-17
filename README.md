@@ -2,19 +2,23 @@
 ## Pseudocódigo
 ```
 input string s
-dict d = [(0,0,s[0])]
-i = 1
+input int buffer
+input int dict
+list keys = []
 
+i = 0
 while i < size(s)
     l = 1
     lL = 0 # largest number of matching chars
     lP = 0 # starting position of the match
 
-    while l <= i
+    while l <= dict and l <= i
         count = 0
         prev = i-l
         next = i
-        while prev < i and next < size(s) and s[prev] == s[next]
+        while buffer >= next - i + 1 and s[prev] == s[next]
+            if next == size(s)
+                break
             prev += 1
             next += 1
             count += 1
@@ -23,8 +27,11 @@ while i < size(s)
             lP = l
         l += 1
     
-    d.add((lP, lL, s[i + lL]))
     i = i + lL + 1
+    if i == size(s)
+        keys.add((lP, lL, null))
+    else
+        keys.add((lP, lL, s[i-1]))
 ```
 ## Exemplos
 1. Entrada: "ababcbababaa"    

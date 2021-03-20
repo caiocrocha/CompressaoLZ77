@@ -8,36 +8,36 @@ make
 ## Pseudocódigo
 ```
 input string s
-input int buffSize
-input int dictSize
+input int tamBuffer
+input int tamDicio
 list keys = []
 
 i = 0
-while i < size(s)
-    l = 1
-    lL = 0 # largest number of matching chars
-    lP = 0 # starting position of the match
+while i < size(s) // percorre o comprimento da string
+    l = 1 // numero de chars a serem subtraidos
+    maiorL = 0 // comprimento da maior sequencia de chars iguais
+    maiorP = 0 // posicao inicial da sequencia
 
-    while l <= dictSize and l <= i
-        count = 0
-        prev = i-l
-        next = i
-        while buffSize >= next - i + 1 and s[prev] == s[next]
-            if next == size(s)
+    while l <= tamDicio and l <= i // percorre a sequencia anterior
+        cont = 0 // contador do numero de chars iguais
+        anterior = i-l // posicao do char de comparacao anterior
+        atual = i // posicao do char de comparacao atual
+        while tamBuffer >= atual - i + 1 and s[anterior] == s[atual] // avanca na string enquanto os dois chars de comparacao forem iguais
+            if atual == size(s)
                 break
-            prev += 1
-            next += 1
-            count += 1
-        if count > lL
-            lL = count
-            lP = l
+            anterior += 1
+            atual += 1
+            cont += 1
+        if cont > maiorL // atualiza sequencia de maior comprimento se ela contem mais numeros iguais
+            maiorL = cont
+            maiorP = l
         l += 1
     
-    i = i + lL + 1
+    i = i + maiorL + 1 // atualiza a posicao atual
     if i > size(s)
-        keys.add((lP, lL, null))
+        keys.add((maiorP, maiorL, null))
     else
-        keys.add((lP, lL, s[i-1]))
+        keys.add((maiorP, maiorL, s[i-1]))
 ```
 ## Exemplos
 1. Entrada: "ababcbababaa"    
